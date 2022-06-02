@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Dashboard Template for Bootstrap</title>
+
+</head>
+<body>
+<!--    <div style="border: 1px solid red;">div 标签 1</div>-->
+<!--    <div style="border: 1px solid red;">div 标签 2</div>-->
+<!--    <div style="border: 1px solid red;">span 标签 1</div>-->
+<!--    <div style="border: 1px solid red;">span 标签 2</div>-->
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr th:each="file:${files}">
+            <td th:text="${file.getRemark()}"></td>
+            <td th:text="${file.getFileType() == '0' ? 'dataset':' '}"></td>
+            <td th:text="${file.getFileType() == '1' ? 'reconstruction': ' '}"></td>
+            <td th:text="${file.getFileType() == '2' ? 'segmentation': ' '}"></td>
+            <td th:text="${file.getFileType() == '3' ? 'mobileRestruction': ' '}"></td>
+<!--            <p>文件下载:</p>-->
+            <td>
+                <a class="btn btn-sm btn-secondary" th:href="@{/download(remark = ${file.getRemark()},personName = ${file.getPersonName()})}">下载文件</a>
+            </td>
+<!--            <a th:href="@{/mobileSign/signDetails(id=${id},name=${name})}"></a>-->
+<!--            <td>-->
+<!--                <form class="form-upload" th:action="@{/download/}" method="get" >-->
+<!--                     <input type="hidden" name="remark" value="${file.getRemark()}">-->
+<!--                    下载：<input type="file" name="file"/>-->
+<!--                    <input type="submit"/>-->
+<!--                </form>-->
+<!--            </td>-->
+
+<!--            <hr/>-->
+        </tr>
+
+<!--        <tr>-->
+<!--            <th>第1行</th>-->
+<!--&lt;!&ndash;            <td th:text="${dpt}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <th>email</th>&ndash;&gt;-->
+<!--&lt;!&ndash;            <th>gender</th>&ndash;&gt;-->
+<!--&lt;!&ndash;            <th>department</th>&ndash;&gt;-->
+<!--&lt;!&ndash;            <th>birth</th>&ndash;&gt;-->
+<!--&lt;!&ndash;            <th>操作</th>&ndash;&gt;-->
+<!--        </tr>-->
+        </thead>
+
+    </table>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.FileMapper">
+
+    <insert id="addFile" parameterType="FileOwn">
+        insert into fileOwn(id,personName,remark,address,fileType,createAt)
+        values (#{id},#{personName},#{remark},#{address},#{fileType},#{createAt})
+    </insert>
+
+    <delete id="deleteFileById" parameterType="integer">
+        delete from fileOwn where id = #{id}
+    </delete>
+
+    <delete id="deleteFileByPersonName" parameterType="string">
+        delete from fileOwn where personName = #{personName}
+    </delete>
+
+    <delete id="deleteFileByPersonRemark" parameterType="string">
+        delete from fileOwn where personName = #{personName} and remark = #{remark}
+    </delete>
+
+    <update id="updateFile" parameterType="FileOwn">
+        update fileOwn set personName=#{personName},remark=#{remark},address = #{address},fileType = #{fileType} where id = #{id}
+    </update>
+
+    <select id = "queryFiles" resultType="FileOwn">
+        select * from emp.fileOwn where personName = #{personName}
+    </select>
+
+    <select id = "queryFilesByAddress" resultType="FileOwn">
+        select * from emp.fileOwn where address = #{address}
+    </select>
+
+    <select id = "queryFile" resultType="FileOwn">
+        select * from emp.fileOwn where id = #{id}
+    </select>
+
+</mapper>

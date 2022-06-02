@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.EmployeeMapper">
+
+    <insert id="addEmp" parameterType="Employee">
+        insert into emp(id,lastName,email,gender,departName,birth)
+        values (#{id},#{lastName},#{email},#{gender},#{departName},#{birth})
+    </insert>
+
+    <delete id="deleteEmpById" parameterType="integer">
+        delete from emp where id = #{id}
+    </delete>
+
+    <update id="updateEmp" parameterType="Employee">
+        update emp set lastName=#{lastName},email=#{email},gender=#{gender},departName=#{departName},birth=#{birth} where id = #{id}
+    </update>
+
+    <select id = "queryEmps" resultType="Employee">
+        select * from mybatis.emp
+    </select>
+
+    <select id = "queryEmp" resultType="Employee">
+        select * from mybatis.emp where id = #{id}
+    </select>
+
+</mapper>
