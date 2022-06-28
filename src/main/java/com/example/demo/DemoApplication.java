@@ -12,6 +12,7 @@ public class DemoApplication {
         System.out.println("hot fix change");
         System.out.println("second");
         System.out.println("...");
+        System.out.println("pull test");
     }
 
 
