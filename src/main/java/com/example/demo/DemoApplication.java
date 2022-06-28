@@ -13,6 +13,7 @@ public class DemoApplication {
         System.out.println("second");
         System.out.println("...");
         System.out.println("pull test");
+        System.out.println("push test2");
     }
 
 
